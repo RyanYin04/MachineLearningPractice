@@ -54,6 +54,10 @@ After implementing the algorithm, I get the split as the table indicates.
 
 It seems that the number of outliers is equal to it of the result using LOF, but actually the reasult is different. Usually, isolation tree is considered to be more efficient, so I used this method to remove the outliers.
 
+## 2. ANN Model
+
+
+
 
 
 
