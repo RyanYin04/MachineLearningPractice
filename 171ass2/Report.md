@@ -56,6 +56,20 @@ It seems that the number of outliers is equal to it of the result using LOF, but
 
 ## 2. ANN Model
 
+### 2.1 Pre-processing data
+
+Before build up and fit my ANN model, the first thing to do is to pre-process the data.
+
+Firsit of all, I transform the all the idependent variable by scaling all the values between 0 and 1 using MinMaxScalar.
+
+Then, to make the data fit the structure of the model, I transformed the categories into numerical lables and then encoded it by one-hot encoding.
+
+
+
+### 2.2 Fit the model
+
+
+
 
 
 
