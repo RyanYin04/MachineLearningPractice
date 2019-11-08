@@ -1,8 +1,6 @@
-# HW 2 Report
+# Report
 
-Ruoyan Yin
 
-916666619
 
 ---
 
