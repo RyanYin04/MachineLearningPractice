@@ -12,7 +12,7 @@ The main goal in this part is to use a suitable outlier detection methode to fin
 
 First, I draw the scatter matrix to briefly get the impression on outliers. 
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/pics/pair.png)
+![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/pair.png)
 
 From the plot above, we can see most of the points gather in one single cluster which indicates there should not be too much outliers in this data set. Then I use different method to distinguish outliers.
 
@@ -88,7 +88,11 @@ and $w_1 = -1.379138, w_2 = -1.3926986, w_3 = -1.3907589, w_0 = -2.05184.$
 
 ## 4. Back propagation
 
+![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/2019-11-07 23.27.53.png)
 
+Then mimick by using keras, I got the weight for the last layer as:
+
+[-0.025, -0.0125, -0.0125, -0.0125]
 
 ## 5. Grid Search
 
@@ -116,7 +120,7 @@ However, the time that was used to fit the model varies a lot . Basically, more 
 
 ## 6. Make prediction
 
-From part 5, I made the decision to use the model with 3 hidden layers and 9 nodes in each layer. Then build a column vector according to the data given in the document. After that I standardize it and finally put it into the model get the prediction as 0.
+From part 5, I made the decision to use the model with 3 hidden layers and 9 nodes in each layer. Then build a column vector according to the data given in the document. After that I standardize it and finally put it into the model get the prediction as 7.
 
 ## 7.Change the activation function and loss
 
