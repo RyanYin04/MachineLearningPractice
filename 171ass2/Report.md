@@ -12,7 +12,7 @@ The main goal in this part is to use a suitable outlier detection methode to fin
 
 First, I draw the scatter matrix to briefly get the impression on outliers. 
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/pair.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/pair.png)
 
 From the plot above, we can see most of the points gather in one single cluster which indicates there should not be too much outliers in this data set. Then I use different method to distinguish outliers.
 
@@ -68,13 +68,13 @@ Then, to make the data fit the structure of the model, I transformed the categor
 
 As we can see in the loss and weight plost, the curves of  loss for the whole model and the weights for the 'CYT' node converge after1000 batches fed which indicates the model get stable. However after some point, the weights is getting bigger which may indicates the existence of overfitting. 
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/loss.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/loss.png)
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/weight.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/weight.png)
 
 By tracking the error of the class 'CYT', I got the plot as below. The error didn't change for the most of the epochs and got stuck at around 0.68 for training error and 0.66 for test error. One of possible reasons for the result is that the model was trying to predict all the input as the 'CYT' class since this class has the largest size and by predicting any input data as 'CYT' can help to reach to the minimum of the MSE. Then I tried to make prediction on the training data using the trained model, the result was excatly the same as the inference, that is I got all the prediction as 0 which stands for the 'CYT' class.
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/error2.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/error2.png)
 
 ## 3. Train ANN on all the sample
 
@@ -106,9 +106,9 @@ By changing the number of layers and the number of nodes of each hidden layer it
 
 And I also get the plot showing how the overall error changing with epochs and a plot showing the time taken to fit the model.
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/grid_search1.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/grid_search1.png)
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/time.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/time.png)
 
 As indicated by the error plot, most of the models reach the error aroud 0.66, and the top 3 combinations that converge are:
 
@@ -130,13 +130,13 @@ Similarly to part five, to decide the suitable model for the problem after chang
 
 Showed by the figure, after about 200 epochs, all the errors are fluctuating around andthe one reaches to the minimal error is the model having 3 hidden layes and 6 nodes in each layer.
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/grid_search2.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/grid_search2.png)
 
 ### 7.2 Re-train the model
 
 Then I re-train the model and get the testing and traing error for the model. And finally, the error fluctuate around 0.3. 
 
-![](/Users/yry/Dropbox/Courses/ecs171/Projects/171ass2/colab_pics/error3.png)
+![](https://github.com/RyanYin04/MachineLearningPractice/blob/master/171ass2/colab_pics/error3.png)
 
 
 
