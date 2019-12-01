@@ -111,7 +111,7 @@ The first method is **Principal Component Analysis(PCA)**. After compress and tr
 
 ![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/perfomance_for_PCA.png) 
 
-From the plots, after implement PCA on the data, different labels 
+From the plots, after implement PCA on the data, the data still spread out. So it can be expected that the performance of the SVM models combined with PCA will not be improved with respect to the AUC or PRAUC.
 
 ### 6.2 T-SNE
 
@@ -119,7 +119,14 @@ T-SNE is another method to dimensionality in a statistical way instead of mathem
 
 ![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/perfomance_for_TSNE.png)
 
+The scatter plot acquaired by applying T-SNE shows a better performance that the dominant label(label that appear most in data) is clustered togther. And the minor labels are spreaded. So the application of T-SNE should be helpful to imporve the SVM models.
+
 ## 7. Retrain SVMs in part 4 using PCA and T-SNE
+
+Recall in part 4:
+
+- Average AUCs: 0.91, 0.92, 0.86, 0.93
+- Average PRAUCs: 0.72, 0.61, 0.59, 0.79
 
 ### 7.1 Use PCA
 
@@ -133,7 +140,12 @@ T-SNE is another method to dimensionality in a statistical way instead of mathem
 
 
 
+Now after PCA:
 
+- Average AUCs: 0.94, 0.94, 0.88, 0.97
+- Average PRAUCs: 0.74, 0.62, 0.65, 0.87
+
+There are some slight improvements on the scores. This may because PCA use all the attributes to form a new set of predictors so that it will contain more information than just selecting a subset of all the attributes separately.
 
 ### 7.2 Use T-SNE 
 
@@ -144,4 +156,13 @@ T-SNE is another method to dimensionality in a statistical way instead of mathem
 ![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Evrn_part7_tsne.png)
 
 ![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Gene_part7_tsne.png)
+
+Now after T-SNE:
+
+- Average AUCs: 1.00(rounded up), 0.99, 0.91, 0.97
+- Average PRAUCs: 0.99, 0.95, 0.79, 0.92
+
+As we can see there is a significant improvement. And the SVM model for Strain type are almost perfect.
+
+So the conclusion is that the best pre-processing aprroch for this data set is T-SNE method.
 
