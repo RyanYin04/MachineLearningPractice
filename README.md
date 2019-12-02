@@ -4,5 +4,8 @@
 
 ## Projetc 2: ANN and Outlier Detection
 
+## Project 3: SVMs, ROC and Dimensionality reduction.
+
+## Project 4: Conjugate GD and Newton CD
 
 
