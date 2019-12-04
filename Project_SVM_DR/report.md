@@ -89,17 +89,47 @@ Before get all the plots, there are two problems should be mentioned. The first 
 
 Finally, I get all the plots as below:
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Strain_part4.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Strain_part4.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Medium_part4.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Medium_part4.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Evrn_part4.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part4.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Gene_part4.png) Here all the SVM models used 'rbf' kernel.  From the ROC curves, the models performs decently. The average AUCs for strain type, medium type, environmental perturbation, gene perturbation are 0.91, 0.92, 0.86, 0.93 respectively.
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Gene_part4.png) 
+
+Here all the SVM models used 'rbf' kernel.  From the ROC curves, the models performs decently. The average AUCs for strain type, medium type, environmental perturbation, gene perturbation are 0.91, 0.92, 0.86, 0.93 respectively.
 
 However, by checking the data, I found out that it was not balanced. So using PR curves and PRAUC should be more appropriate. And this time, such a simple SVM model shows some deficiencies. The average of PRAUCs for each model are 0.72, 0.61, 0.59, 0.79. 
 
 ## 5. Composite SVM
+
+### 5.1 Composite model
+
+To get a composite SVM model, I firstly concatenate tow columns into 1 column and use the new column as a new response. Then train the SVM model on the dataset again. I got the AUC and PRAUC as 0.97 and 0.78 this time. And the ROC, PR curves are showed as below.
+
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_combined_part5.png)
+
+### 5.2 Evaluate composite model against seperate models
+
+To get the overall ROC and PR curve as well as AUC and PRAUC correspondingly for two seperate classifier, the process has been changed.
+
+Firstly, I fit the model seperately and calculate the score on the test set, i.e. probability. And then to get the combined probability, I use the equation:
+$$
+P(AB) = P(A)P(B)
+$$
+Finally, using macro average to calculate the men AUC and PRAUC. And get the plot as below:
+
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/part5_seperate_model.png)
+
+The mean AUC is 0.98, PRAUC is 0.68. So the AUC is similar to it of composite model, but the PRAUC is much less. And since the data is not balanced, so PRAUC  will be more persuasive. So it might me more reasonable to use composite model instead two seperate ones.
+
+### 5.3 Evaluate composite model against baseline model
+
+In order to tell if the model is really working, it is neccessary to check how the baseline model perfoms. In this case, I create a dummy model using 'most frequent' strategy that is the model will always make a prediction the same as the element that appears most in the data. And then I have the AUC and PRAUC for the dummy model as: 0.57, 0.20 which are much smaller than the ones from composite model.
+
+So it can be concluded that the SVM model did work better than random guess.
+
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_combined_part5_dummy.png)
 
 ## 6. Dimensionality reduction
 
@@ -109,7 +139,7 @@ Before the way I use to reduce the dimensionality is appying elastic net. In thi
 
 The first method is **Principal Component Analysis(PCA)**. After compress and transform all the 4,495 attributes by using PCA, I draw the scatter plot of the transformed data. The color of the point indicates the class that the point belong to.
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/perfomance_for_PCA.png) 
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/perfomance_for_PCA.png) 
 
 From the plots, after implement PCA on the data, the data still spread out. So it can be expected that the performance of the SVM models combined with PCA will not be improved with respect to the AUC or PRAUC.
 
@@ -117,7 +147,7 @@ From the plots, after implement PCA on the data, the data still spread out. So i
 
 T-SNE is another method to dimensionality in a statistical way instead of mathematical one. Similarly, I also draw the scatter plot after transformed the data.
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/perfomance_for_TSNE.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/perfomance_for_TSNE.png)
 
 The scatter plot acquaired by applying T-SNE shows a better performance that the dominant label(label that appear most in data) is clustered togther. And the minor labels are spreaded. So the application of T-SNE should be helpful to imporve the SVM models.
 
@@ -130,13 +160,13 @@ Recall in part 4:
 
 ### 7.1 Use PCA
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Strain_part7_pca.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Strain_part7_pca.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Medium_part7_pca.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Medium_part7_pca.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Evrn_part7_pca.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part7_pca.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Gene_part7_pca.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Gene_part7_pca.png)
 
 
 
@@ -149,13 +179,13 @@ There are some slight improvements on the scores. This may because PCA use all t
 
 ### 7.2 Use T-SNE 
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Strain_part7_tsne.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Strain_part7_tsne.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Medium_part7_tsne.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Medium_part7_tsne.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Evrn_part7_tsne.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part7_tsne.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/171ass3/pics/ROC_PR_Gene_part7_tsne.png)
+![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Gene_part7_tsne.png)
 
 Now after T-SNE:
 
