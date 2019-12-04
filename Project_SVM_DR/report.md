@@ -74,9 +74,9 @@ I will chose the second method, the quantile method, as my way to get the bootst
 
 ## 3. Make prediction using bootstrap method
 
-By setting the number of sampling to be 1000 and the sample size of each batch to be 100, I got the 95% confidence interval as:
+By setting the number of sampling to be 500 and the sample size of each batch to be 100, I got the 95% confidence interval as:
 $$
-(0.3681446722968671, \quad 0.41881798449797863)
+(0.3541632925954786,\quad 0.4331288649549101)
 $$
 
 ## 4. SVM model
