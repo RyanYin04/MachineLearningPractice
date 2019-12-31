@@ -86,13 +86,13 @@ Before get all the plots, there are two problems should be mentioned. The first 
 
 Finally, I get all the plots as below:
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Strain_part4.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Strain_part4.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Medium_part4.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Medium_part4.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part4.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part4.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Gene_part4.png) 
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Gene_part4.png) 
 
 Here all the SVM models used 'rbf' kernel.  From the ROC curves, the models performs decently. The average AUCs for strain type, medium type, environmental perturbation, gene perturbation are 0.91, 0.92, 0.86, 0.93 respectively.
 
@@ -104,7 +104,7 @@ However, by checking the data, I found out that it was not balanced. So using PR
 
 To get a composite SVM model, I firstly concatenate tow columns into 1 column and use the new column as a new response. Then train the SVM model on the dataset again. I got the AUC and PRAUC as 0.97 and 0.78 this time. And the ROC, PR curves are showed as below.
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_combined_part5.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_combined_part5.png)
 
 ### 5.2 Evaluate composite model against seperate models
 
@@ -116,7 +116,7 @@ P(AB) = P(A)P(B)
 $$
 Finally, using macro average to calculate the men AUC and PRAUC. And get the plot as below:
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/part5_seperate_model.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/part5_seperate_model.png)
 
 The mean AUC is 0.98, PRAUC is 0.68. So the AUC is similar to it of composite model, but the PRAUC is much less. And since the data is not balanced, so PRAUC  will be more persuasive. So it might me more reasonable to use composite model instead two seperate ones.
 
@@ -126,7 +126,7 @@ In order to tell if the model is really working, it is neccessary to check how t
 
 So it can be concluded that the SVM model did work better than random guess.
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_combined_part5_dummy.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_combined_part5_dummy.png)
 
 ## 6. Dimensionality reduction
 
@@ -136,7 +136,7 @@ Before the way I use to reduce the dimensionality is appying elastic net. In thi
 
 The first method is **Principal Component Analysis(PCA)**. After compress and transform all the 4,495 attributes by using PCA, I draw the scatter plot of the transformed data. The color of the point indicates the class that the point belong to.
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/perfomance_for_PCA.png) 
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/perfomance_for_PCA.png) 
 
 From the plots, after implement PCA on the data, the data still spread out. So it can be expected that the performance of the SVM models combined with PCA will not be improved with respect to the AUC or PRAUC.
 
@@ -144,7 +144,7 @@ From the plots, after implement PCA on the data, the data still spread out. So i
 
 T-SNE is another method to dimensionality in a statistical way instead of mathematical one. Similarly, I also draw the scatter plot after transformed the data.
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/perfomance_for_TSNE.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/perfomance_for_TSNE.png)
 
 The scatter plot acquaired by applying T-SNE shows a better performance that the dominant label(label that appear most in data) is clustered togther. And the minor labels are spreaded. So the application of T-SNE should be helpful to imporve the SVM models.
 
@@ -157,13 +157,13 @@ Recall in part 4:
 
 ### 7.1 Use PCA
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Strain_part7_pca.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Strain_part7_pca.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Medium_part7_pca.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Medium_part7_pca.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part7_pca.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part7_pca.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Gene_part7_pca.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Gene_part7_pca.png)
 
 
 
@@ -176,13 +176,13 @@ There are some slight improvements on the scores. This may because PCA use all t
 
 ### 7.2 Use T-SNE 
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Strain_part7_tsne.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Strain_part7_tsne.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Medium_part7_tsne.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Medium_part7_tsne.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part7_tsne.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Evrn_part7_tsne.png)
 
-![](/Users/yry/Dropbox/Courses/ECS171/Projects/Project_SVM_DR/pics/ROC_PR_Gene_part7_tsne.png)
+![](/Users/yry/Dropbox/ML_Projects/Project_SVM_DR/pics/ROC_PR_Gene_part7_tsne.png)
 
 Now after T-SNE:
 
