@@ -1,8 +1,5 @@
 # Report		
 
-Ruoyan Yin
-
-916666619
 
 ## 1. Regulized regression
 
